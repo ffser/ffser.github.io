@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>javascript的面向对象 | willhao</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="无意中在网上看到有人在讨论javascript的面向对象，心血来潮的总结了下，避免以后自己又忘记了。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript的面向对象">
+<meta property="og:url" content="http://willhao.com/2016/02/28/javascript-object/index.html">
+<meta property="og:site_name" content="willhao">
+<meta property="og:description" content="无意中在网上看到有人在讨论javascript的面向对象，心血来潮的总结了下，避免以后自己又忘记了。">
+<meta property="og:updated_time" content="2016-02-28T14:03:51.619Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript的面向对象">
+<meta name="twitter:description" content="无意中在网上看到有人在讨论javascript的面向对象，心血来潮的总结了下，避免以后自己又忘记了。">
+  
+    <link rel="alternative" href="/atom.xml" title="willhao" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css" type="text/css">
+  
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+  
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar.png" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/">陈豪</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">努力成为全栈工程师</p>
+        
+                
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:250248410@qq.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/ffser/" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/面向对象/" style="font-size: 10px;">面向对象</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于全栈</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">陈豪</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/avatar.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">陈豪</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">努力成为全栈工程师</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:250248410@qq.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/ffser/" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-javascript-object" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/28/javascript-object/" class="article-date">
+      <time datetime="2016-02-28T12:17:11.000Z" itemprop="datePublished">2016-02-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      javascript的面向对象
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面向对象/">面向对象</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>无意中在网上看到有人在讨论javascript的面向对象，心血来潮的总结了下，避免以后自己又忘记了。<br><a id="more"></a></p>
+<h2 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h2><h3 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> createCar(name,price,color)&#123;</span><br><span class="line">    var o = new Object();</span><br><span class="line">    o.name = name;</span><br><span class="line">    o.price = price;</span><br><span class="line">    o.color = color;</span><br><span class="line">    o.getPrice = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">        alert(this.price);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> o;</span><br><span class="line">&#125;</span><br><span class="line">var car1 = createCar(<span class="string">"奔驰"</span>,<span class="string">'300000'</span>,<span class="string">'red'</span>);</span><br><span class="line">var car2 = createCar(<span class="string">"宝马"</span>,<span class="string">'350000'</span>,<span class="string">'black'</span>);</span><br><span class="line">car1.getPrice();//<span class="number">300000</span>;</span><br><span class="line">car2.getPrice();//<span class="number">350000</span>;</span><br></pre></td></tr></table></figure>
+<p>工厂模式比较简单，也没什么好说的。</p>
+<h3 id="构造函数模式"><a href="#构造函数模式" class="headerlink" title="构造函数模式"></a>构造函数模式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> Car(name,price,color)&#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">    this.price = price;</span><br><span class="line">    this.color = color;</span><br><span class="line">    this.getPrice = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">        alert(this.price);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var car1 = new Car(<span class="string">"奔驰"</span>,<span class="string">'300000'</span>,<span class="string">'red'</span>);</span><br><span class="line">var car2 = new Car(<span class="string">"宝马"</span>,<span class="string">'350000'</span>,<span class="string">'black'</span>);</span><br><span class="line">car1.getPrice();//<span class="number">300000</span>;</span><br><span class="line">car2.getPrice();//<span class="number">350000</span>;</span><br></pre></td></tr></table></figure>
+<p>构造函数模式的createCar()和工厂模式中Car()的代码大多数相同，不同之处：<br>1.没有直接的创建对象<br>2.属性和方法直接赋值给了this对象<br>3.没有return</p>
+<h3 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">Car</span></span>()&#123;&#125;</span><br><span class="line">Car.prototype.name = <span class="string">"奔驰"</span>;</span><br><span class="line">Car.prototype.price = <span class="string">'300000'</span>;</span><br><span class="line">Car.prototype.color = <span class="string">'red'</span>;</span><br><span class="line">Car.prototype.getPrice = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">        alert(this.price);</span><br><span class="line">&#125;</span><br><span class="line">var car1 = new Car();</span><br><span class="line">var car2 = new Car();</span><br><span class="line">car1.getPrice();//<span class="number">300000</span>;</span><br><span class="line">car2.getPrice();//<span class="number">300000</span>;</span><br><span class="line">alert(car1.getPrice === car2.getPrice);//<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>很明显对象car1和对象car2共享了属性和方法。</p>
+<h3 id="组合使用构造函数模式和原型模式"><a href="#组合使用构造函数模式和原型模式" class="headerlink" title="组合使用构造函数模式和原型模式"></a>组合使用构造函数模式和原型模式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> Car(name,price,color)&#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">    this.price = price;</span><br><span class="line">    this.color = color;</span><br><span class="line">    this.users = [<span class="string">"will"</span>,<span class="string">"hao"</span>]; </span><br><span class="line">&#125;</span><br><span class="line">Car.prototype = &#123;</span><br><span class="line">    constructor : Car;</span><br><span class="line">    getPrice : <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">        alert(this.price);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var car1 = new Car(<span class="string">"奔驰"</span>,<span class="string">'300000'</span>,<span class="string">'red'</span>);</span><br><span class="line">var car2 = new Car(<span class="string">"宝马"</span>,<span class="string">'350000'</span>,<span class="string">'black'</span>);</span><br><span class="line">car1.users.push(<span class="string">'mother'</span>);</span><br><span class="line">alert(car1.users);//<span class="string">"will,hao,mother"</span></span><br><span class="line">alert(car2.users);//<span class="string">"will,hao"</span></span><br><span class="line">alert(car1.users === car2.users);//<span class="literal">false</span></span><br><span class="line">alert(car1.getPrice === car2.getPrice);//<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>利用构造函数传参数，利用原型模式共享方法和属性</p>
+<h3 id="动态原型模式"><a href="#动态原型模式" class="headerlink" title="动态原型模式"></a>动态原型模式</h3><h3 id="寄生构造函数模式"><a href="#寄生构造函数模式" class="headerlink" title="寄生构造函数模式"></a>寄生构造函数模式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> Car(name,price,color)&#123;</span><br><span class="line">    var o = new Object();</span><br><span class="line">    o.name = name;</span><br><span class="line">    o.price = price;</span><br><span class="line">    o.color = color;</span><br><span class="line">    o.getPrice = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">        alert(this.price);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> o;</span><br><span class="line">&#125;</span><br><span class="line">var car1 = new Car(<span class="string">"奔驰"</span>,<span class="string">'300000'</span>,<span class="string">'red'</span>);</span><br><span class="line">car1.getPrice();</span><br></pre></td></tr></table></figure>
+<p>这个模式一眼望去工厂模式差不多，在使用的时候 new又是属于构造函数。使用例子：<br>假如我们要创建一个具有额外方法的特殊数组。又不能直接修改Array构造函数。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">specialArray</span></span>()&#123;</span><br><span class="line">    var values = new Array();</span><br><span class="line">    values.push.apply(values,arguments);</span><br><span class="line">    values.toPipedString = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">        <span class="built_in">return</span> this.join(<span class="string">","</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="built_in">return</span> values;</span><br><span class="line">&#125;</span><br><span class="line">var cars = new specialArray(<span class="string">"宝马"</span>，<span class="string">"奔驰"</span>);</span><br><span class="line">alert(cars.toPipedString());//<span class="string">"宝马,奔驰"</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="稳妥构造函数模式"><a href="#稳妥构造函数模式" class="headerlink" title="稳妥构造函数模式"></a>稳妥构造函数模式</h3><h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">animal</span></span>()&#123;</span><br><span class="line">    this.canMove = <span class="literal">true</span>; </span><br><span class="line">&#125;</span><br><span class="line">animal.prototype.<span class="function"><span class="title">getCanMove</span></span>()&#123;</span><br><span class="line">    <span class="built_in">return</span> this.canMove;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">dog</span></span>()&#123;</span><br><span class="line">    this.canFly =<span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line">dog.prototype = new animal();</span><br><span class="line">dog.prototype.getCanFly = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">    <span class="built_in">return</span> this.canFly;</span><br><span class="line">&#125;</span><br><span class="line">var wangcai = new dog();</span><br><span class="line">alert(wangcai.getCanMove());//<span class="literal">true</span></span><br><span class="line">alert(wangcai instanceof Object);//<span class="literal">true</span></span><br><span class="line">alert(wangcai instanceof animal);//<span class="literal">true</span></span><br><span class="line">alert(wangcai instanceof dog);//<span class="literal">true</span></span><br><span class="line">alert(Object.prototype.isPrototypeOf(wangcai));//<span class="literal">true</span></span><br><span class="line">alert(animal.prototype.isPrototypeOf(wangcai));//<span class="literal">true</span></span><br><span class="line">alert(dog.prototype.isPrototypeOf(wangcai));//<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h3 id="借用构造函数"><a href="#借用构造函数" class="headerlink" title="借用构造函数"></a>借用构造函数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">animal</span></span>()&#123;</span><br><span class="line">    this.colors = [<span class="string">'red'</span>,<span class="string">'blue'</span>,<span class="string">'green'</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">dog</span></span>()&#123;</span><br><span class="line">    animal.call(this);</span><br><span class="line">&#125;</span><br><span class="line">var wangcai = new dog();</span><br><span class="line">wangcai.colors.push(<span class="string">"black"</span>);</span><br><span class="line">alert(wangcai.colors);//<span class="string">'red,blue,green,black'</span></span><br><span class="line">var heixiong = new dog();</span><br><span class="line">alert(heixiong.colors);//<span class="string">'red,blue,green'</span></span><br></pre></td></tr></table></figure>
+<h3 id="组合继承（原型链和借用构造函数）"><a href="#组合继承（原型链和借用构造函数）" class="headerlink" title="组合继承（原型链和借用构造函数）"></a>组合继承（原型链和借用构造函数）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> animal(name)&#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">    this.colors = [<span class="string">'red'</span>,<span class="string">'blue'</span>,<span class="string">'green'</span>];</span><br><span class="line">&#125;</span><br><span class="line">animal.prototype.sayName = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">    alert(this.name);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">function</span> dog(name,age)&#123;</span><br><span class="line">    animal.call(this,name);</span><br><span class="line">    this.age = age;</span><br><span class="line">&#125;</span><br><span class="line">dog.prototype = new animal();</span><br><span class="line">dog.prototype.sayAge = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">    alert(this.age);</span><br><span class="line">&#125;</span><br><span class="line">var dog1 = new dog(<span class="string">"wangcai"</span>,<span class="string">'1'</span>);</span><br><span class="line">dog1.colors.push(<span class="string">'black'</span>);</span><br><span class="line">alert(dog1.colors);//red<span class="string">','</span>blue<span class="string">','</span>green<span class="string">',black</span><br><span class="line">dog1.sayName();//wangcai</span><br><span class="line">dog1.sayAge();//1</span><br><span class="line">var dog2 = new dog("heixiong",'</span><span class="number">2</span><span class="string">');</span><br><span class="line">alert(dog2.colors);//red'</span>,<span class="string">'blue'</span>,<span class="string">'green'</span></span><br><span class="line">dog2.sayName();//heixiong</span><br><span class="line">dog2.sayAge();//<span class="number">2</span></span><br></pre></td></tr></table></figure>
+<h3 id="原型式继承"><a href="#原型式继承" class="headerlink" title="原型式继承"></a>原型式继承</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> object(o)&#123;</span><br><span class="line">    <span class="keyword">function</span> <span class="function"><span class="title">F</span></span>()&#123;&#125;</span><br><span class="line">    F.prototype = o;</span><br><span class="line">    <span class="built_in">return</span> new F();</span><br><span class="line">&#125;</span><br><span class="line">var dog = &#123;</span><br><span class="line">    name:<span class="string">'wangcai'</span>,</span><br><span class="line">    colors:[<span class="string">'red'</span>,<span class="string">'blue'</span>,<span class="string">'green'</span>];</span><br><span class="line">&#125;;</span><br><span class="line">var dog1 = object(dog);</span><br><span class="line">dog1.name = <span class="string">'xiuxiong'</span>;</span><br><span class="line">dog1.colors.push(<span class="string">'black'</span>);</span><br><span class="line">var dog2 = object(dog);</span><br><span class="line">dog2.name = <span class="string">'heixiong'</span>;</span><br><span class="line">dog2.colors.push(<span class="string">'yellow'</span>);</span><br><span class="line">alert(dog.colors);//<span class="string">'red'</span>,<span class="string">'blue'</span>,<span class="string">'green'</span>,black,yellow</span><br></pre></td></tr></table></figure>
+<h3 id="寄生式继承"><a href="#寄生式继承" class="headerlink" title="寄生式继承"></a>寄生式继承</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> object(o)&#123;</span><br><span class="line">    <span class="keyword">function</span> <span class="function"><span class="title">F</span></span>()&#123;&#125;</span><br><span class="line">    F.prototype = o;</span><br><span class="line">    <span class="built_in">return</span> new F();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> createAnother(original)&#123;</span><br><span class="line">    var <span class="built_in">clone</span> = object(original);</span><br><span class="line">    clone.run = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">        alert(<span class="string">'run'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var dog = &#123;</span><br><span class="line">    name:<span class="string">'wangcai'</span>,</span><br><span class="line">    colors:[<span class="string">'red'</span>,<span class="string">'blue'</span>,<span class="string">'green'</span>];</span><br><span class="line">&#125;;</span><br><span class="line">var dog1 = createAnother(dog);</span><br><span class="line">dog1.run();//run</span><br></pre></td></tr></table></figure>
+<h3 id="寄生组合式继承"><a href="#寄生组合式继承" class="headerlink" title="寄生组合式继承"></a>寄生组合式继承</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> animal(name)&#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">    this.colors = [<span class="string">'red'</span>,<span class="string">'blue'</span>,<span class="string">'green'</span>];</span><br><span class="line">&#125;</span><br><span class="line">animal.prototype.sayName = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">    alert(this.name);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">function</span> dog(name,age)&#123;</span><br><span class="line">    animal.call(this,name);</span><br><span class="line">    this.age = age;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> object(o)&#123;</span><br><span class="line">    <span class="keyword">function</span> <span class="function"><span class="title">F</span></span>()&#123;&#125;</span><br><span class="line">    F.prototype = o;</span><br><span class="line">    <span class="built_in">return</span> new F();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> inheritPrototype(dog,animal)&#123;</span><br><span class="line">    var prototype = object(animal.prototype);</span><br><span class="line">    prototype.constructor = dog;</span><br><span class="line">    dog.prototype = prototype;</span><br><span class="line">&#125;</span><br><span class="line">inheritPrototype(dog,animal);</span><br><span class="line">dog.prototype.sayAge = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">    alert(this.age);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/02/28/javascript-object/">javascript的面向对象</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 陈豪 的个人博客">陈豪</a></p>
+        <p><span>发布时间:</span>2016年02月28日 - 20时17分</p>
+        <p><span>最后更新:</span>2016年02月28日 - 22时03分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/02/28/javascript-object/" title="javascript的面向对象">http://willhao.com/2016/02/28/javascript-object/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://willhao.com/2016/02/28/javascript-object/　　作者: 陈豪" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/02/27/start-github-blog/">
+                    如何建立github个人博客
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建对象"><span class="toc-number">1.</span> <span class="toc-text">创建对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#工厂模式"><span class="toc-number">1.1.</span> <span class="toc-text">工厂模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构造函数模式"><span class="toc-number">1.2.</span> <span class="toc-text">构造函数模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原型模式"><span class="toc-number">1.3.</span> <span class="toc-text">原型模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组合使用构造函数模式和原型模式"><span class="toc-number">1.4.</span> <span class="toc-text">组合使用构造函数模式和原型模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动态原型模式"><span class="toc-number">1.5.</span> <span class="toc-text">动态原型模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#寄生构造函数模式"><span class="toc-number">1.6.</span> <span class="toc-text">寄生构造函数模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#稳妥构造函数模式"><span class="toc-number">1.7.</span> <span class="toc-text">稳妥构造函数模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#继承"><span class="toc-number">2.</span> <span class="toc-text">继承</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#原型链"><span class="toc-number">2.1.</span> <span class="toc-text">原型链</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#借用构造函数"><span class="toc-number">2.2.</span> <span class="toc-text">借用构造函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组合继承（原型链和借用构造函数）"><span class="toc-number">2.3.</span> <span class="toc-text">组合继承（原型链和借用构造函数）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原型式继承"><span class="toc-number">2.4.</span> <span class="toc-text">原型式继承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#寄生式继承"><span class="toc-number">2.5.</span> <span class="toc-text">寄生式继承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#寄生组合式继承"><span class="toc-number">2.6.</span> <span class="toc-text">寄生组合式继承</span></a></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+    <div class="share">
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+    <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+    <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+    </div>
+    <script>
+        window._bd_share_config={
+            "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+</div>
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2016/02/28/javascript-object/" data-title="javascript的面向对象" data-url="http://willhao.com/2016/02/28/javascript-object/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"willhao"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/02/27/start-github-blog/" title="下一篇: 如何建立github个人博客">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/02/28/javascript-object/">javascript的面向对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/27/start-github-blog/">如何建立github个人博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/26/hello-world/">Hello World</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 陈豪
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by MOxFIVE
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >本站到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
