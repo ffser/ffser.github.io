@@ -144,7 +144,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/存储过程/" style="font-size: 10px;">存储过程</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 10px;">面向对象</a>
+                        <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/存储过程/" style="font-size: 10px;">存储过程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 10px;">面向对象</a>
                     </div>
                 </section>
                 
@@ -285,6 +285,124 @@
 
 
   
+    <article id="post-nginx" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/03/nginx/" class="article-date">
+      <time datetime="2016-03-03T11:15:35.000Z" itemprop="datePublished">2016-03-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/03/nginx/">nginx</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h2 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a>nginx</h2><p>nginx是一个高性能的web服务器，支持epoll，kqueue开发模式。同时也是一个高性能的负载均衡服务器，另外nginx的最初目的是最为一个邮件服务器。<br>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/03/nginx/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-design-patterns" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/02/design-patterns/" class="article-date">
+      <time datetime="2016-03-02T08:28:05.000Z" itemprop="datePublished">2016-03-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/02/design-patterns/">设计模式</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h2 id="设计模式的六大原则"><a href="#设计模式的六大原则" class="headerlink" title="设计模式的六大原则"></a>设计模式的六大原则</h2><h3 id="开闭原则"><a href="#开闭原则" class="headerlink" title="开闭原则"></a>开闭原则</h3><p>开放拓展，关闭修改。为了使程序的扩展性好，易于维护和升级<br>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/02/design-patterns/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-javascript-closure" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -312,21 +430,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h1><h2 id="没有函数名字的函数。"><a href="#没有函数名字的函数。" class="headerlink" title="没有函数名字的函数。"></a>没有函数名字的函数。</h2><p>没有函数名字的函数。</p>
-<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var funname = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">	console.log(<span class="string">'这也属于匿名函数'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这里其实是创建了一个匿名函数，然后赋值给了变量funname;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">funname2</span></span>()&#123;</span><br><span class="line">	<span class="built_in">return</span> <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">		console.log(<span class="string">'这也属于匿名函数'</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这里其实是在funname2函数里面创建了一个匿名函数，并返回;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">	//块级作用域</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></p>
-<p>函数模块化，模拟空间变量;</p>
-<h2 id="实现块级作用域，提高代码的质量"><a href="#实现块级作用域，提高代码的质量" class="headerlink" title="实现块级作用域，提高代码的质量"></a>实现块级作用域，提高代码的质量</h2><p>1.提高代码的质量，减少不必要的代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">test</span></span>()&#123;</span><br><span class="line">	alert(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">set</span>Timeout(<span class="built_in">test</span>(),<span class="number">1000</span>);</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span>Timeout(<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">	alert(<span class="number">1</span>);</span><br><span class="line">&#125;,<span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
-<p>2.实现块级作用域<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">	//块级作用域</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></p>
-<h1 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h1><h2 id="函数嵌套，内存永驻"><a href="#函数嵌套，内存永驻" class="headerlink" title="函数嵌套，内存永驻"></a>函数嵌套，内存永驻</h2><p>内部函数能够调用外部函数的变量，即使外部函数执行完毕，外部函数的变量依旧被引用。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">a</span></span>()&#123;</span><br><span class="line">	var i = <span class="number">10</span>;</span><br><span class="line">	<span class="keyword">function</span> <span class="function"><span class="title">b</span></span>()&#123;</span><br><span class="line">		<span class="built_in">return</span> i;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> b;</span><br><span class="line">&#125;</span><br><span class="line">var result = a();</span><br></pre></td></tr></table></figure></p>
-<p>函数a内嵌套了函数b，函数b可以调用函数a的所有变量，函数b返回i变量。函数a返回函数b。即使a函数执行完并赋值个变量result。函数a中的变量i依旧被引用。这时候就形成了闭包。</p>
-<h2 id="实现缓存"><a href="#实现缓存" class="headerlink" title="实现缓存"></a>实现缓存</h2><p>由于闭包的特性，有些函数执行完后 变量依旧保存在内存中没释放，下次访问就可以直接从内存中读取。具体例子后面补上。</p>
-<h2 id="对象的封装"><a href="#对象的封装" class="headerlink" title="对象的封装"></a>对象的封装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var dog=<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line"></span><br><span class="line">	var name = <span class="string">'旺财'</span>;//私有变量</span><br><span class="line">	<span class="built_in">return</span> &#123;</span><br><span class="line">		getName:<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">			<span class="built_in">return</span> name;</span><br><span class="line">		&#125;,</span><br><span class="line">		<span class="built_in">set</span>Name:<span class="keyword">function</span>(newName)&#123;</span><br><span class="line">			name = newName;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;();//函数自执行完了</span><br><span class="line">dog.getName();</span><br><span class="line">dog.setName(<span class="string">'灰熊'</span>);</span><br><span class="line">dog.getName();</span><br></pre></td></tr></table></figure>
-<h2 id="实现类和继承-todo"><a href="#实现类和继承-todo" class="headerlink" title="实现类和继承  todo"></a>实现类和继承  todo</h2><p>这点我也是网上看的。有些迷惑。从闭包的理论上来理解。我也没看出这个属于闭包。先mark一下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">var dog=<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line"></span><br><span class="line">	var name = <span class="string">'旺财'</span>;//私有变量</span><br><span class="line">	<span class="built_in">return</span> &#123;</span><br><span class="line">		getName:<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">			<span class="built_in">return</span> name;</span><br><span class="line">		&#125;,</span><br><span class="line">		<span class="built_in">set</span>Name:<span class="keyword">function</span>(newName)&#123;</span><br><span class="line">			name = newName;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;;</span><br><span class="line">var d = new dog();</span><br><span class="line">d.getName();</span><br><span class="line">d.setName(<span class="string">'灰熊'</span>);</span><br><span class="line">console.log(d.getName());</span><br><span class="line">var d2 = <span class="function"><span class="title">function</span></span>()&#123;&#125;;</span><br><span class="line">d2.prototype = new dog();</span><br><span class="line">d2.prototype.run = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">	console.log(<span class="string">'run'</span>);</span><br><span class="line">&#125;</span><br><span class="line">var j=new d2();</span><br><span class="line">j.setName(<span class="string">'狗熊);</span><br><span class="line">j.run();</span><br><span class="line">dog.getName();</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="子函数能够调用上层函数的变量，但是拿到的是最终值，使用闭包可以解决这个问题"><a href="#子函数能够调用上层函数的变量，但是拿到的是最终值，使用闭包可以解决这个问题" class="headerlink" title="子函数能够调用上层函数的变量，但是拿到的是最终值，使用闭包可以解决这个问题"></a>子函数能够调用上层函数的变量，但是拿到的是最终值，使用闭包可以解决这个问题</h2><h2 id="内存泄露"><a href="#内存泄露" class="headerlink" title="内存泄露"></a>内存泄露</h2><p>如果闭包中存在html元素的引用。</p>
-
+              <h1 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h1><h2 id="没有函数名字的函数。"><a href="#没有函数名字的函数。" class="headerlink" title="没有函数名字的函数。"></a>没有函数名字的函数。</h2><p>没有函数名字的函数。<br>
+          
       
     </div>
     
@@ -339,6 +444,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/闭包/">闭包</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/02/javascript-closure/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>

@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://willhao.com/2016/03/05/mysql-procedure/index.html">
 <meta property="og:site_name" content="willhao">
 <meta property="og:description" content="我们平时操作数据库语言sql语句在执行的时候需要先编译，然后执行，而存储过程是一组为了完成特定功能的sql语句集。经过编译后存储在数据库中，只需通过指定存储过程的名字并给定参数调用它。存储过程只在mysql5.0之后才支持。">
-<meta property="og:updated_time" content="2016-03-05T11:30:54.697Z">
+<meta property="og:updated_time" content="2016-03-05T12:22:40.017Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql存储过程">
 <meta name="twitter:description" content="我们平时操作数据库语言sql语句在执行的时候需要先编译，然后执行，而存储过程是一组为了完成特定功能的sql语句集。经过编译后存储在数据库中，只需通过指定存储过程的名字并给定参数调用它。存储过程只在mysql5.0之后才支持。">
@@ -142,7 +142,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/存储过程/" style="font-size: 10px;">存储过程</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 10px;">面向对象</a>
+                        <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/存储过程/" style="font-size: 10px;">存储过程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/面向对象/" style="font-size: 10px;">面向对象</a>
                     </div>
                 </section>
                 
@@ -278,10 +278,11 @@
 <p>客户端关闭 用户变量就自动消失<br>ps:<br>用户变量名一般以@开头<br>滥用用户变量会导致程序难以理解及管理<br>注释：双模杠：–   ：–name存储过程名</p>
 <h3 id="MySQL存储过程的控制语句"><a href="#MySQL存储过程的控制语句" class="headerlink" title="MySQL存储过程的控制语句"></a>MySQL存储过程的控制语句</h3><p>1.变量作用域<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">begin</span></span><br><span class="line">	···</span><br><span class="line">	<span class="keyword">begin</span></span><br><span class="line">		···</span><br><span class="line">	<span class="keyword">end</span>;</span></span><br><span class="line"><span class="operator"><span class="keyword">end</span>;</span></span><br></pre></td></tr></table></figure></p>
 <p>2.条件语句<br>if-then-else<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> ··· <span class="keyword">then</span> </span><br><span class="line">···</span><br><span class="line"><span class="keyword">end</span> <span class="keyword">if</span>;</span><br><span class="line"><span class="keyword">if</span> ··· <span class="keyword">then</span> </span><br><span class="line">···</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"> ···</span><br><span class="line"><span class="keyword">end</span> <span class="keyword">if</span>;</span><br></pre></td></tr></table></figure></p>
-<p>case语句<br>case ···<br>when ··· then<br>···<br>when ··· then<br>···<br>else<br>···<br>end case;<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3.</span>循环语句 </span><br><span class="line"><span class="keyword">while</span>····<span class="keyword">end</span> <span class="keyword">while</span></span><br></pre></td></tr></table></figure></p>
-<p>while ··· do<br>···<br>end while;<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">repeat</span>····<span class="keyword">end</span> <span class="keyword">repeat</span></span><br></pre></td></tr></table></figure></p>
-<p>repeat<br>···<br>until ···<br>end repaet;<br><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">loop</span>····<span class="keyword">end</span> <span class="keyword">loop</span></span><br></pre></td></tr></table></figure></p>
-<p>LOOP_LABLE:loop<br>···<br>leave LOOP_LABLE;<br>```<br>LABLES标记<br>4.iterare迭代<br>ITERATE</p>
+<p>case语句<br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> ···</span><br><span class="line"><span class="keyword">when</span> ··· <span class="keyword">then</span></span><br><span class="line">···</span><br><span class="line"><span class="keyword">when</span> ··· <span class="keyword">then</span></span><br><span class="line">···</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">···</span><br><span class="line"><span class="keyword">end</span> <span class="keyword">case</span>;</span><br></pre></td></tr></table></figure></p>
+<p>3.循环语句<br>while····end while<br><figure class="highlight cal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> ··· <span class="keyword">do</span></span><br><span class="line">···</span><br><span class="line"><span class="keyword">end</span> <span class="keyword">while</span>;</span><br></pre></td></tr></table></figure></p>
+<p>repeat····end repeat<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">repeat</span></span><br><span class="line">···</span><br><span class="line"><span class="keyword">until</span> ···</span><br><span class="line"><span class="function"><span class="keyword">end</span> <span class="title">repaet</span>;</span></span><br></pre></td></tr></table></figure></p>
+<p>loop····end loop<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">LOOP_LABLE</span>:loop </span><br><span class="line">···</span><br><span class="line">leave LOOP_LABLE;</span><br></pre></td></tr></table></figure></p>
+<p>LABLES标记<br>4.iterare迭代<br>ITERATE</p>
 <h2 id="存储过程与函数"><a href="#存储过程与函数" class="headerlink" title="存储过程与函数"></a>存储过程与函数</h2><ol>
 <li>只能说是看各自的习惯的,用procedure可以实现的,大部分用函数都可以的,所以有些package中函数的实现一个，过程的实现一个。<br>2.考虑是使用函数还是使用存储过程可以根据以下方面：<br>从参数的返回情况来看：如果返回多个参数值最好使用存储过程，如果只有一个返回值的话可以使用函数；<br>从调用情况来看：</li>
 </ol>
@@ -304,7 +305,7 @@
         <p><span>本文标题:</span><a href="/2016/03/05/mysql-procedure/">mysql存储过程</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 陈豪 的个人博客">陈豪</a></p>
         <p><span>发布时间:</span>2016年03月05日 - 11时35分</p>
-        <p><span>最后更新:</span>2016年03月05日 - 19时30分</p>
+        <p><span>最后更新:</span>2016年03月05日 - 20时22分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/03/05/mysql-procedure/" title="mysql存储过程">http://willhao.com/2016/03/05/mysql-procedure/</a>
             <span class="copy-path" data-clipboard-text="原文: http://willhao.com/2016/03/05/mysql-procedure/　　作者: 陈豪" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -322,8 +323,8 @@
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/03/02/javascript-closure/">
-                    javascript匿名函数和闭包
+                <a href="/2016/03/03/nginx/">
+                    nginx
                 </a>
             </div>
         
@@ -428,13 +429,13 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/03/02/javascript-closure/" title="下一篇: javascript匿名函数和闭包">
+            <a href="/2016/03/03/nginx/" title="下一篇: nginx">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/03/05/mysql-procedure/">mysql存储过程</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/javascript-closure/">javascript匿名函数和闭包</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/28/javascript-object/">javascript的面向对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/27/start-github-blog/">如何建立github个人博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/26/hello-world/">Hello World</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/03/05/mysql-procedure/">mysql存储过程</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/03/nginx/">nginx</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/design-patterns/">设计模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/javascript-closure/">javascript匿名函数和闭包</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/28/javascript-object/">javascript的面向对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/27/start-github-blog/">如何建立github个人博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/26/hello-world/">Hello World</a></li></ul>
     <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");

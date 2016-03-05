@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>javascript匿名函数和闭包 | willhao</title>
+  <title>nginx | willhao</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="匿名函数没有函数名字的函数。没有函数名字的函数。">
+  <meta name="description" content="nginxnginx是一个高性能的web服务器，支持epoll，kqueue开发模式。同时也是一个高性能的负载均衡服务器，另外nginx的最初目的是最为一个邮件服务器。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="javascript匿名函数和闭包">
-<meta property="og:url" content="http://willhao.com/2016/03/02/javascript-closure/index.html">
+<meta property="og:title" content="nginx">
+<meta property="og:url" content="http://willhao.com/2016/03/03/nginx/index.html">
 <meta property="og:site_name" content="willhao">
-<meta property="og:description" content="匿名函数没有函数名字的函数。没有函数名字的函数。">
-<meta property="og:updated_time" content="2016-03-05T12:24:06.816Z">
+<meta property="og:description" content="nginxnginx是一个高性能的web服务器，支持epoll，kqueue开发模式。同时也是一个高性能的负载均衡服务器，另外nginx的最初目的是最为一个邮件服务器。">
+<meta property="og:updated_time" content="2016-03-05T12:23:05.050Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="javascript匿名函数和闭包">
-<meta name="twitter:description" content="匿名函数没有函数名字的函数。没有函数名字的函数。">
+<meta name="twitter:title" content="nginx">
+<meta name="twitter:description" content="nginxnginx是一个高性能的web服务器，支持epoll，kqueue开发模式。同时也是一个高性能的负载均衡服务器，另外nginx的最初目的是最为一个邮件服务器。">
   
     <link rel="alternative" href="/atom.xml" title="willhao" type="application/atom+xml">
   
@@ -220,11 +220,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-javascript-closure" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-nginx" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/02/javascript-closure/" class="article-date">
-      <time datetime="2016-03-02T01:08:19.000Z" itemprop="datePublished">2016-03-02</time>
+      <a href="/2016/03/03/nginx/" class="article-date">
+      <time datetime="2016-03-03T11:15:35.000Z" itemprop="datePublished">2016-03-03</time>
 </a>
     </div>
   
@@ -237,7 +237,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      javascript匿名函数和闭包
+      nginx
     </h1>
   
 
@@ -247,10 +247,6 @@
         
 
         
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/闭包/">闭包</a></li></ul>
-    </div>
-
         <div class="clearfix"></div>
       </div>
       
@@ -258,20 +254,17 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h1><h2 id="没有函数名字的函数。"><a href="#没有函数名字的函数。" class="headerlink" title="没有函数名字的函数。"></a>没有函数名字的函数。</h2><p>没有函数名字的函数。<br><a id="more"></a></p>
-<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var funname = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">	console.log(<span class="string">'这也属于匿名函数'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这里其实是创建了一个匿名函数，然后赋值给了变量funname;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">funname2</span></span>()&#123;</span><br><span class="line">	<span class="built_in">return</span> <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">		console.log(<span class="string">'这也属于匿名函数'</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这里其实是在funname2函数里面创建了一个匿名函数，并返回;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">	//块级作用域</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></p>
-<p>函数模块化，模拟空间变量;</p>
-<h2 id="实现块级作用域，提高代码的质量"><a href="#实现块级作用域，提高代码的质量" class="headerlink" title="实现块级作用域，提高代码的质量"></a>实现块级作用域，提高代码的质量</h2><p>1.提高代码的质量，减少不必要的代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">test</span></span>()&#123;</span><br><span class="line">	alert(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">set</span>Timeout(<span class="built_in">test</span>(),<span class="number">1000</span>);</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span>Timeout(<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">	alert(<span class="number">1</span>);</span><br><span class="line">&#125;,<span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
-<p>2.实现块级作用域<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">	//块级作用域</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></p>
-<h1 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h1><h2 id="函数嵌套，内存永驻"><a href="#函数嵌套，内存永驻" class="headerlink" title="函数嵌套，内存永驻"></a>函数嵌套，内存永驻</h2><p>内部函数能够调用外部函数的变量，即使外部函数执行完毕，外部函数的变量依旧被引用。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">a</span></span>()&#123;</span><br><span class="line">	var i = <span class="number">10</span>;</span><br><span class="line">	<span class="keyword">function</span> <span class="function"><span class="title">b</span></span>()&#123;</span><br><span class="line">		<span class="built_in">return</span> i;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> b;</span><br><span class="line">&#125;</span><br><span class="line">var result = a();</span><br></pre></td></tr></table></figure></p>
-<p>函数a内嵌套了函数b，函数b可以调用函数a的所有变量，函数b返回i变量。函数a返回函数b。即使a函数执行完并赋值个变量result。函数a中的变量i依旧被引用。这时候就形成了闭包。</p>
-<h2 id="实现缓存"><a href="#实现缓存" class="headerlink" title="实现缓存"></a>实现缓存</h2><p>由于闭包的特性，有些函数执行完后 变量依旧保存在内存中没释放，下次访问就可以直接从内存中读取。具体例子后面补上。</p>
-<h2 id="对象的封装"><a href="#对象的封装" class="headerlink" title="对象的封装"></a>对象的封装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var dog=<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line"></span><br><span class="line">	var name = <span class="string">'旺财'</span>;//私有变量</span><br><span class="line">	<span class="built_in">return</span> &#123;</span><br><span class="line">		getName:<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">			<span class="built_in">return</span> name;</span><br><span class="line">		&#125;,</span><br><span class="line">		<span class="built_in">set</span>Name:<span class="keyword">function</span>(newName)&#123;</span><br><span class="line">			name = newName;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;();//函数自执行完了</span><br><span class="line">dog.getName();</span><br><span class="line">dog.setName(<span class="string">'灰熊'</span>);</span><br><span class="line">dog.getName();</span><br></pre></td></tr></table></figure>
-<h2 id="实现类和继承-todo"><a href="#实现类和继承-todo" class="headerlink" title="实现类和继承  todo"></a>实现类和继承  todo</h2><p>这点我也是网上看的。有些迷惑。从闭包的理论上来理解。我也没看出这个属于闭包。先mark一下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">var dog=<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line"></span><br><span class="line">	var name = <span class="string">'旺财'</span>;//私有变量</span><br><span class="line">	<span class="built_in">return</span> &#123;</span><br><span class="line">		getName:<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">			<span class="built_in">return</span> name;</span><br><span class="line">		&#125;,</span><br><span class="line">		<span class="built_in">set</span>Name:<span class="keyword">function</span>(newName)&#123;</span><br><span class="line">			name = newName;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;;</span><br><span class="line">var d = new dog();</span><br><span class="line">d.getName();</span><br><span class="line">d.setName(<span class="string">'灰熊'</span>);</span><br><span class="line">console.log(d.getName());</span><br><span class="line">var d2 = <span class="function"><span class="title">function</span></span>()&#123;&#125;;</span><br><span class="line">d2.prototype = new dog();</span><br><span class="line">d2.prototype.run = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">	console.log(<span class="string">'run'</span>);</span><br><span class="line">&#125;</span><br><span class="line">var j=new d2();</span><br><span class="line">j.setName(<span class="string">'狗熊);</span><br><span class="line">j.run();</span><br><span class="line">dog.getName();</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="子函数能够调用上层函数的变量，但是拿到的是最终值，使用闭包可以解决这个问题"><a href="#子函数能够调用上层函数的变量，但是拿到的是最终值，使用闭包可以解决这个问题" class="headerlink" title="子函数能够调用上层函数的变量，但是拿到的是最终值，使用闭包可以解决这个问题"></a>子函数能够调用上层函数的变量，但是拿到的是最终值，使用闭包可以解决这个问题</h2><h2 id="内存泄露"><a href="#内存泄露" class="headerlink" title="内存泄露"></a>内存泄露</h2><p>如果闭包中存在html元素的引用。</p>
+        <h2 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a>nginx</h2><p>nginx是一个高性能的web服务器，支持epoll，kqueue开发模式。同时也是一个高性能的负载均衡服务器，另外nginx的最初目的是最为一个邮件服务器。<br><a id="more"></a></p>
+<h2 id="nginx安装"><a href="#nginx安装" class="headerlink" title="nginx安装"></a>nginx安装</h2><h2 id="nginx命令"><a href="#nginx命令" class="headerlink" title="nginx命令"></a>nginx命令</h2><p>以下例子均是在定义nginx目录的前提下运行<br>/usr/local/nginx/sbin/nginx<br>/usr/local/nginx/logs/nginx.pid<br>/usr/local/nginx/conf/nginx.conf</p>
+<h3 id="nginx常用命令"><a href="#nginx常用命令" class="headerlink" title="nginx常用命令"></a>nginx常用命令</h3><p>测试配置文件/usr/local/nginx/conf/nginx.conf 是否正常<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/nginx/sbin/nginx -t /usr/<span class="built_in">local</span>/nginx/conf/nginx.conf</span><br></pre></td></tr></table></figure></p>
+<p>加载/usr/local/nginx/conf/nginx.conf配置启动<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/nginx/sbin/nginx -c /usr/<span class="built_in">local</span>/nginx/conf/nginx.conf</span><br></pre></td></tr></table></figure></p>
+<p>查看nginx版本号<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/nginx/sbin/nginx -v</span><br></pre></td></tr></table></figure></p>
+<p>查看nginx安装时参数<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/nginx/sbin/nginx -V</span><br></pre></td></tr></table></figure></p>
+<h3 id="nginx停止"><a href="#nginx停止" class="headerlink" title="nginx停止"></a>nginx停止</h3><p>从容停止<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">kill</span> -QUIT `cat /usr/<span class="built_in">local</span>/nginx/logs/nginx.pid`</span><br></pre></td></tr></table></figure></p>
+<p>快速停止<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">kill</span> -TERM `cat /usr/<span class="built_in">local</span>/nginx/logs/nginx.pid`</span><br></pre></td></tr></table></figure></p>
+<p>暴力停止<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">kill</span> -<span class="number">9</span> `cat /usr/<span class="built_in">local</span>/nginx/logs/nginx.pid`</span><br></pre></td></tr></table></figure></p>
+<p>重新加载配置启动<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">kill</span> -HUP `cat /usr/<span class="built_in">local</span>/nginx/logs/nginx.pid`</span><br></pre></td></tr></table></figure></p>
+<h3 id="平滑升级到新的二进制代码"><a href="#平滑升级到新的二进制代码" class="headerlink" title="平滑升级到新的二进制代码"></a>平滑升级到新的二进制代码</h3><p>1.使用新的可执行程序替换旧的（最好做好备份）<br>2.kill -USR2 <code>cat /usr/local/nginx/logs/nginx.pid</code><br>主进程将重命名它的 .pid 文件为 .oldbin (比如：/usr/local/nginx/logs/nginx.pid.oldbin)，然后执行新的可执行程序，依次启动新的主进程和新的工作进程：<br>两个 nginx 实例会同时运行，一起处理输入的请求。要逐步停止旧的实例，你必须发送 WINCH 信号给旧的主进程，然后，它的工作进程就将开始从容关闭<br>3.kill -WINCH <code>cat /usr/local/nginx/logs/nginx.pid.oldbin</code><br>4.kill -QUIT <code>cat /usr/local/nginx/logs/nginx.pid.oldbin</code></p>
 
       
     </div>
@@ -280,13 +273,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/03/02/javascript-closure/">javascript匿名函数和闭包</a></p>
+        <p><span>本文标题:</span><a href="/2016/03/03/nginx/">nginx</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 陈豪 的个人博客">陈豪</a></p>
-        <p><span>发布时间:</span>2016年03月02日 - 09时08分</p>
-        <p><span>最后更新:</span>2016年03月05日 - 20时24分</p>
+        <p><span>发布时间:</span>2016年03月03日 - 19时15分</p>
+        <p><span>最后更新:</span>2016年03月05日 - 20时23分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/03/02/javascript-closure/" title="javascript匿名函数和闭包">http://willhao.com/2016/03/02/javascript-closure/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://willhao.com/2016/03/02/javascript-closure/　　作者: 陈豪" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/03/03/nginx/" title="nginx">http://willhao.com/2016/03/03/nginx/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://willhao.com/2016/03/03/nginx/　　作者: 陈豪" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -300,15 +293,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/03/02/design-patterns/">
-                    设计模式
+                <a href="/2016/03/05/mysql-procedure/">
+                    mysql存储过程
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/02/28/javascript-object/">
-                    javascript的面向对象
+                <a href="/2016/03/02/design-patterns/">
+                    设计模式
                 </a>
             </div>
         
@@ -319,7 +312,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#匿名函数"><span class="toc-number">1.</span> <span class="toc-text">匿名函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#没有函数名字的函数。"><span class="toc-number">1.1.</span> <span class="toc-text">没有函数名字的函数。</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#例子"><span class="toc-number">1.1.1.</span> <span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现块级作用域，提高代码的质量"><span class="toc-number">1.2.</span> <span class="toc-text">实现块级作用域，提高代码的质量</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#闭包"><span class="toc-number">2.</span> <span class="toc-text">闭包</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#函数嵌套，内存永驻"><span class="toc-number">2.1.</span> <span class="toc-text">函数嵌套，内存永驻</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现缓存"><span class="toc-number">2.2.</span> <span class="toc-text">实现缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对象的封装"><span class="toc-number">2.3.</span> <span class="toc-text">对象的封装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现类和继承-todo"><span class="toc-number">2.4.</span> <span class="toc-text">实现类和继承  todo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子函数能够调用上层函数的变量，但是拿到的是最终值，使用闭包可以解决这个问题"><span class="toc-number">2.5.</span> <span class="toc-text">子函数能够调用上层函数的变量，但是拿到的是最终值，使用闭包可以解决这个问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内存泄露"><span class="toc-number">2.6.</span> <span class="toc-text">内存泄露</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#nginx"><span class="toc-number">1.</span> <span class="toc-text">nginx</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nginx安装"><span class="toc-number">2.</span> <span class="toc-text">nginx安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nginx命令"><span class="toc-number">3.</span> <span class="toc-text">nginx命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#nginx常用命令"><span class="toc-number">3.1.</span> <span class="toc-text">nginx常用命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nginx停止"><span class="toc-number">3.2.</span> <span class="toc-text">nginx停止</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#平滑升级到新的二进制代码"><span class="toc-number">3.3.</span> <span class="toc-text">平滑升级到新的二进制代码</span></a></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -383,7 +376,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/03/02/javascript-closure/" data-title="javascript匿名函数和闭包" data-url="http://willhao.com/2016/03/02/javascript-closure/"></div>
+    <div class="ds-thread" data-thread-key="2016/03/03/nginx/" data-title="nginx" data-url="http://willhao.com/2016/03/03/nginx/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -407,7 +400,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/03/02/design-patterns/" title="上一篇: 设计模式">
+            <a href="/2016/03/05/mysql-procedure/" title="上一篇: mysql存储过程">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -415,7 +408,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/02/28/javascript-object/" title="下一篇: javascript的面向对象">
+            <a href="/2016/03/02/design-patterns/" title="下一篇: 设计模式">
                 <i class="fa fa-angle-right"></i>
             </a>
         

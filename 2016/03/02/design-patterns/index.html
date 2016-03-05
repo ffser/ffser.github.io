@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>javascript匿名函数和闭包 | willhao</title>
+  <title>设计模式 | willhao</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="匿名函数没有函数名字的函数。没有函数名字的函数。">
+  <meta name="description" content="设计模式的六大原则开闭原则开放拓展，关闭修改。为了使程序的扩展性好，易于维护和升级">
 <meta property="og:type" content="article">
-<meta property="og:title" content="javascript匿名函数和闭包">
-<meta property="og:url" content="http://willhao.com/2016/03/02/javascript-closure/index.html">
+<meta property="og:title" content="设计模式">
+<meta property="og:url" content="http://willhao.com/2016/03/02/design-patterns/index.html">
 <meta property="og:site_name" content="willhao">
-<meta property="og:description" content="匿名函数没有函数名字的函数。没有函数名字的函数。">
-<meta property="og:updated_time" content="2016-03-05T12:24:06.816Z">
+<meta property="og:description" content="设计模式的六大原则开闭原则开放拓展，关闭修改。为了使程序的扩展性好，易于维护和升级">
+<meta property="og:updated_time" content="2016-03-05T12:22:18.786Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="javascript匿名函数和闭包">
-<meta name="twitter:description" content="匿名函数没有函数名字的函数。没有函数名字的函数。">
+<meta name="twitter:title" content="设计模式">
+<meta name="twitter:description" content="设计模式的六大原则开闭原则开放拓展，关闭修改。为了使程序的扩展性好，易于维护和升级">
   
     <link rel="alternative" href="/atom.xml" title="willhao" type="application/atom+xml">
   
@@ -220,11 +220,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-javascript-closure" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-design-patterns" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/02/javascript-closure/" class="article-date">
-      <time datetime="2016-03-02T01:08:19.000Z" itemprop="datePublished">2016-03-02</time>
+      <a href="/2016/03/02/design-patterns/" class="article-date">
+      <time datetime="2016-03-02T08:28:05.000Z" itemprop="datePublished">2016-03-02</time>
 </a>
     </div>
   
@@ -237,7 +237,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      javascript匿名函数和闭包
+      设计模式
     </h1>
   
 
@@ -248,7 +248,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/闭包/">闭包</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -258,20 +258,35 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h1><h2 id="没有函数名字的函数。"><a href="#没有函数名字的函数。" class="headerlink" title="没有函数名字的函数。"></a>没有函数名字的函数。</h2><p>没有函数名字的函数。<br><a id="more"></a></p>
-<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var funname = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">	console.log(<span class="string">'这也属于匿名函数'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这里其实是创建了一个匿名函数，然后赋值给了变量funname;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">funname2</span></span>()&#123;</span><br><span class="line">	<span class="built_in">return</span> <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">		console.log(<span class="string">'这也属于匿名函数'</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这里其实是在funname2函数里面创建了一个匿名函数，并返回;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">	//块级作用域</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></p>
-<p>函数模块化，模拟空间变量;</p>
-<h2 id="实现块级作用域，提高代码的质量"><a href="#实现块级作用域，提高代码的质量" class="headerlink" title="实现块级作用域，提高代码的质量"></a>实现块级作用域，提高代码的质量</h2><p>1.提高代码的质量，减少不必要的代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">test</span></span>()&#123;</span><br><span class="line">	alert(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">set</span>Timeout(<span class="built_in">test</span>(),<span class="number">1000</span>);</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span>Timeout(<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">	alert(<span class="number">1</span>);</span><br><span class="line">&#125;,<span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
-<p>2.实现块级作用域<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">	//块级作用域</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></p>
-<h1 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h1><h2 id="函数嵌套，内存永驻"><a href="#函数嵌套，内存永驻" class="headerlink" title="函数嵌套，内存永驻"></a>函数嵌套，内存永驻</h2><p>内部函数能够调用外部函数的变量，即使外部函数执行完毕，外部函数的变量依旧被引用。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">a</span></span>()&#123;</span><br><span class="line">	var i = <span class="number">10</span>;</span><br><span class="line">	<span class="keyword">function</span> <span class="function"><span class="title">b</span></span>()&#123;</span><br><span class="line">		<span class="built_in">return</span> i;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> b;</span><br><span class="line">&#125;</span><br><span class="line">var result = a();</span><br></pre></td></tr></table></figure></p>
-<p>函数a内嵌套了函数b，函数b可以调用函数a的所有变量，函数b返回i变量。函数a返回函数b。即使a函数执行完并赋值个变量result。函数a中的变量i依旧被引用。这时候就形成了闭包。</p>
-<h2 id="实现缓存"><a href="#实现缓存" class="headerlink" title="实现缓存"></a>实现缓存</h2><p>由于闭包的特性，有些函数执行完后 变量依旧保存在内存中没释放，下次访问就可以直接从内存中读取。具体例子后面补上。</p>
-<h2 id="对象的封装"><a href="#对象的封装" class="headerlink" title="对象的封装"></a>对象的封装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var dog=<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line"></span><br><span class="line">	var name = <span class="string">'旺财'</span>;//私有变量</span><br><span class="line">	<span class="built_in">return</span> &#123;</span><br><span class="line">		getName:<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">			<span class="built_in">return</span> name;</span><br><span class="line">		&#125;,</span><br><span class="line">		<span class="built_in">set</span>Name:<span class="keyword">function</span>(newName)&#123;</span><br><span class="line">			name = newName;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;();//函数自执行完了</span><br><span class="line">dog.getName();</span><br><span class="line">dog.setName(<span class="string">'灰熊'</span>);</span><br><span class="line">dog.getName();</span><br></pre></td></tr></table></figure>
-<h2 id="实现类和继承-todo"><a href="#实现类和继承-todo" class="headerlink" title="实现类和继承  todo"></a>实现类和继承  todo</h2><p>这点我也是网上看的。有些迷惑。从闭包的理论上来理解。我也没看出这个属于闭包。先mark一下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">var dog=<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line"></span><br><span class="line">	var name = <span class="string">'旺财'</span>;//私有变量</span><br><span class="line">	<span class="built_in">return</span> &#123;</span><br><span class="line">		getName:<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">			<span class="built_in">return</span> name;</span><br><span class="line">		&#125;,</span><br><span class="line">		<span class="built_in">set</span>Name:<span class="keyword">function</span>(newName)&#123;</span><br><span class="line">			name = newName;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;;</span><br><span class="line">var d = new dog();</span><br><span class="line">d.getName();</span><br><span class="line">d.setName(<span class="string">'灰熊'</span>);</span><br><span class="line">console.log(d.getName());</span><br><span class="line">var d2 = <span class="function"><span class="title">function</span></span>()&#123;&#125;;</span><br><span class="line">d2.prototype = new dog();</span><br><span class="line">d2.prototype.run = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">	console.log(<span class="string">'run'</span>);</span><br><span class="line">&#125;</span><br><span class="line">var j=new d2();</span><br><span class="line">j.setName(<span class="string">'狗熊);</span><br><span class="line">j.run();</span><br><span class="line">dog.getName();</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="子函数能够调用上层函数的变量，但是拿到的是最终值，使用闭包可以解决这个问题"><a href="#子函数能够调用上层函数的变量，但是拿到的是最终值，使用闭包可以解决这个问题" class="headerlink" title="子函数能够调用上层函数的变量，但是拿到的是最终值，使用闭包可以解决这个问题"></a>子函数能够调用上层函数的变量，但是拿到的是最终值，使用闭包可以解决这个问题</h2><h2 id="内存泄露"><a href="#内存泄露" class="headerlink" title="内存泄露"></a>内存泄露</h2><p>如果闭包中存在html元素的引用。</p>
+        <h2 id="设计模式的六大原则"><a href="#设计模式的六大原则" class="headerlink" title="设计模式的六大原则"></a>设计模式的六大原则</h2><h3 id="开闭原则"><a href="#开闭原则" class="headerlink" title="开闭原则"></a>开闭原则</h3><p>开放拓展，关闭修改。为了使程序的扩展性好，易于维护和升级<br><a id="more"></a></p>
+<h3 id="依赖倒转原则"><a href="#依赖倒转原则" class="headerlink" title="依赖倒转原则"></a>依赖倒转原则</h3><p>针对接口编程，依赖抽象不依赖具体。</p>
+<h3 id="接口隔离原则"><a href="#接口隔离原则" class="headerlink" title="接口隔离原则"></a>接口隔离原则</h3><p>使用多个接口比使用一个接口要好，意思就是降低类之间的耦合。实现低依赖，低耦合，一次只做一件事情。</p>
+<h3 id="最少知道原则"><a href="#最少知道原则" class="headerlink" title="最少知道原则"></a>最少知道原则</h3><p>一个实体类尽量少和其他实体类发生相互作用，是系统功能相对独立。只和朋友交谈</p>
+<h3 id="合成复用原则"><a href="#合成复用原则" class="headerlink" title="合成复用原则"></a>合成复用原则</h3><p>使用组合/聚合比使用继承好的多。</p>
+<h3 id="里氏代换原则"><a href="#里氏代换原则" class="headerlink" title="里氏代换原则"></a>里氏代换原则</h3><p>里氏代换原则中说，任何基类可以出现的地方，子类一定可以出现。 LSP是继承复用的基石，只有当衍生类可以替换掉基类，软件单位的功能不受到影响时，基类才能真正被复用，而衍生类也能够在基类的基础上增加新的行为。<br>简单的说就是：子类的能力必须大于等于父类，即父类可以使用的方法，子类都可以使用。任何子类的对象都可以当做父类使用。<br>里氏代换原则是指基类和子类的关系。只有当这种关系存在时，里氏代换关系才存在。如果两个具体的类A，B之间的关系违反了LSP的设计，(假设是从B到A的继承关系)那么根据具体的情况可以在下面的两种重构方案中选择一种。<br>1.创建一个新的抽象类C，作为两个具体类的超类，将A，B的共同行为移动到C中来解决问题。<br>2.从B到A的继承关系改为委派关系。</p>
+<h2 id="创建型模式5种"><a href="#创建型模式5种" class="headerlink" title="创建型模式5种"></a>创建型模式5种</h2><h3 id="工厂方法"><a href="#工厂方法" class="headerlink" title="工厂方法"></a>工厂方法</h3><p>定义一个用于创建对象的接口，让子类决定实例化哪一个类。Factory Method 使一个类的实例化延迟到其子类。<br>1.简单工厂方法<br>2.多个工厂方法<br>3.静态工厂方法</p>
+<h3 id="抽象工厂"><a href="#抽象工厂" class="headerlink" title="抽象工厂"></a>抽象工厂</h3><p>提供一个创建一系列相关或相互依赖对象的接口，而无需指定它们具体的类。 </p>
+<h3 id="建造模式"><a href="#建造模式" class="headerlink" title="建造模式"></a>建造模式</h3><p>将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示。</p>
+<h3 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h3><p>保证一个类仅有一个实例，并提供一个访问它的全局访问点。</p>
+<h3 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h3><p>用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象。<br>1.浅复制<br>2.深复制</p>
+<h2 id="结构型模式7种"><a href="#结构型模式7种" class="headerlink" title="结构型模式7种"></a>结构型模式7种</h2><h3 id="装饰者模式"><a href="#装饰者模式" class="headerlink" title="装饰者模式"></a>装饰者模式</h3><p>把一个对象装饰成其他对象。缺点对象越来越多，不好维护</p>
+<h3 id="桥接模式"><a href="#桥接模式" class="headerlink" title="桥接模式"></a>桥接模式</h3><p>JDBC进行连接数据库的时候，在各个数据库之间进行切换，基本不需要动太多的代码，甚至丝毫不用动</p>
+<h3 id="外观模式"><a href="#外观模式" class="headerlink" title="外观模式"></a>外观模式</h3><p>电脑的启动需要启动cpu，屏幕，等等 。外观模式就是封装一个命令。可以启动所有命令完成电脑的启动。</p>
+<h3 id="适配器模式"><a href="#适配器模式" class="headerlink" title="适配器模式"></a>适配器模式</h3><p>将一个类的接口转换成客户希望的另外一个接口。Adapter 模式使得原本由于接口不兼容而不能一起工作的那些类可以一起工作。<br>1.类的适配器<br>2.对象的适配器<br>3.接口的适配器</p>
+<h3 id="组合模式"><a href="#组合模式" class="headerlink" title="组合模式"></a>组合模式</h3><p>一个一个的节点组合成一颗二叉树，或者树。</p>
+<h3 id="享元模式"><a href="#享元模式" class="headerlink" title="享元模式"></a>享元模式</h3><p>有很多空的cd需要打包好标题，刻录内容。创建一个内容池子，每次给cd刻录的时候先去池子里取内容。内容不存在的就新添加到池子里。存在了就直接取出来刻录</p>
+<h3 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h3><p>a对象可以写文章写的好。b对象很聪明。就让a对象代写文章。然后在写上自己的名字作为作者。</p>
+<h2 id="行为型模式11种"><a href="#行为型模式11种" class="headerlink" title="行为型模式11种"></a>行为型模式11种</h2><h3 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h3><p>书刊订阅，订阅了书刊，就可以再指定时间里收到书刊，取消订阅，就收不到了。</p>
+<h3 id="模板方法模式"><a href="#模板方法模式" class="headerlink" title="模板方法模式"></a>模板方法模式</h3><p>父类定义好一个主方法，主方法调用了n个子方法。子类继承父类实现n个子方法。</p>
+<h3 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h3><p>将一系列算法封装成对象，这些对象之间可以相互替换，但是不影响客户的功能。</p>
+<h3 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h3><p>将军下达命令给士兵。将军不用知道如何执行。最后的执行有士兵来实现。</p>
+<h3 id="责任链模式"><a href="#责任链模式" class="headerlink" title="责任链模式"></a>责任链模式</h3><p>每个对象多享有一个下家，客户下发一个任务，当任务被接受时，如果不满足条件就移交给下家，让下家处理，直到有人处理。客户不必知道是谁处理的。</p>
+<h3 id="迭代模式"><a href="#迭代模式" class="headerlink" title="迭代模式"></a>迭代模式</h3><p>遍历</p>
+<h3 id="访问者模式"><a href="#访问者模式" class="headerlink" title="访问者模式"></a>访问者模式</h3><p>定义一个操作中的算法的骨架，而将一些步骤延迟到子类中。TemplateMethod 使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤</p>
+<h3 id="状态模式"><a href="#状态模式" class="headerlink" title="状态模式"></a>状态模式</h3><p>同一个对象在不同的状态间切换。表现出不同的行为。</p>
+<h3 id="备忘录模式-todo"><a href="#备忘录模式-todo" class="headerlink" title="备忘录模式//todo"></a>备忘录模式//todo</h3><p>在不破坏封装性的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态。这样以后就可将该对象恢复到原先保存的状态。</p>
+<h3 id="中介模式"><a href="#中介模式" class="headerlink" title="中介模式"></a>中介模式</h3><p>中美对话，联合国作为中介。</p>
+<h3 id="解释器模式-todo"><a href="#解释器模式-todo" class="headerlink" title="解释器模式//todo"></a>解释器模式//todo</h3><p>给定一个语言，定义它的文法的一种表示，并定义一个解释器，这个解释器使用该表示来解释语言中的句子。<br><a href="http://www.cnblogs.com/beijiguangyong/archive/2010/11/15/2302807.html#_Toc281750448" target="_blank" rel="external">http://www.cnblogs.com/beijiguangyong/archive/2010/11/15/2302807.html#_Toc281750448</a><br><a href="http://www.cnblogs.com/maowang1991/archive/2013/04/15/3023236.html" target="_blank" rel="external">http://www.cnblogs.com/maowang1991/archive/2013/04/15/3023236.html</a></p>
 
       
     </div>
@@ -280,13 +295,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/03/02/javascript-closure/">javascript匿名函数和闭包</a></p>
+        <p><span>本文标题:</span><a href="/2016/03/02/design-patterns/">设计模式</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 陈豪 的个人博客">陈豪</a></p>
-        <p><span>发布时间:</span>2016年03月02日 - 09时08分</p>
-        <p><span>最后更新:</span>2016年03月05日 - 20时24分</p>
+        <p><span>发布时间:</span>2016年03月02日 - 16时28分</p>
+        <p><span>最后更新:</span>2016年03月05日 - 20时22分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/03/02/javascript-closure/" title="javascript匿名函数和闭包">http://willhao.com/2016/03/02/javascript-closure/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://willhao.com/2016/03/02/javascript-closure/　　作者: 陈豪" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/03/02/design-patterns/" title="设计模式">http://willhao.com/2016/03/02/design-patterns/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://willhao.com/2016/03/02/design-patterns/　　作者: 陈豪" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -300,15 +315,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/03/02/design-patterns/">
-                    设计模式
+                <a href="/2016/03/03/nginx/">
+                    nginx
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/02/28/javascript-object/">
-                    javascript的面向对象
+                <a href="/2016/03/02/javascript-closure/">
+                    javascript匿名函数和闭包
                 </a>
             </div>
         
@@ -319,7 +334,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#匿名函数"><span class="toc-number">1.</span> <span class="toc-text">匿名函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#没有函数名字的函数。"><span class="toc-number">1.1.</span> <span class="toc-text">没有函数名字的函数。</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#例子"><span class="toc-number">1.1.1.</span> <span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现块级作用域，提高代码的质量"><span class="toc-number">1.2.</span> <span class="toc-text">实现块级作用域，提高代码的质量</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#闭包"><span class="toc-number">2.</span> <span class="toc-text">闭包</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#函数嵌套，内存永驻"><span class="toc-number">2.1.</span> <span class="toc-text">函数嵌套，内存永驻</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现缓存"><span class="toc-number">2.2.</span> <span class="toc-text">实现缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对象的封装"><span class="toc-number">2.3.</span> <span class="toc-text">对象的封装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现类和继承-todo"><span class="toc-number">2.4.</span> <span class="toc-text">实现类和继承  todo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子函数能够调用上层函数的变量，但是拿到的是最终值，使用闭包可以解决这个问题"><span class="toc-number">2.5.</span> <span class="toc-text">子函数能够调用上层函数的变量，但是拿到的是最终值，使用闭包可以解决这个问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内存泄露"><span class="toc-number">2.6.</span> <span class="toc-text">内存泄露</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#设计模式的六大原则"><span class="toc-number">1.</span> <span class="toc-text">设计模式的六大原则</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#开闭原则"><span class="toc-number">1.1.</span> <span class="toc-text">开闭原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#依赖倒转原则"><span class="toc-number">1.2.</span> <span class="toc-text">依赖倒转原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#接口隔离原则"><span class="toc-number">1.3.</span> <span class="toc-text">接口隔离原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#最少知道原则"><span class="toc-number">1.4.</span> <span class="toc-text">最少知道原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#合成复用原则"><span class="toc-number">1.5.</span> <span class="toc-text">合成复用原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#里氏代换原则"><span class="toc-number">1.6.</span> <span class="toc-text">里氏代换原则</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建型模式5种"><span class="toc-number">2.</span> <span class="toc-text">创建型模式5种</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#工厂方法"><span class="toc-number">2.1.</span> <span class="toc-text">工厂方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#抽象工厂"><span class="toc-number">2.2.</span> <span class="toc-text">抽象工厂</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#建造模式"><span class="toc-number">2.3.</span> <span class="toc-text">建造模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单例模式"><span class="toc-number">2.4.</span> <span class="toc-text">单例模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原型模式"><span class="toc-number">2.5.</span> <span class="toc-text">原型模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结构型模式7种"><span class="toc-number">3.</span> <span class="toc-text">结构型模式7种</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#装饰者模式"><span class="toc-number">3.1.</span> <span class="toc-text">装饰者模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#桥接模式"><span class="toc-number">3.2.</span> <span class="toc-text">桥接模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#外观模式"><span class="toc-number">3.3.</span> <span class="toc-text">外观模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#适配器模式"><span class="toc-number">3.4.</span> <span class="toc-text">适配器模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组合模式"><span class="toc-number">3.5.</span> <span class="toc-text">组合模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#享元模式"><span class="toc-number">3.6.</span> <span class="toc-text">享元模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代理模式"><span class="toc-number">3.7.</span> <span class="toc-text">代理模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#行为型模式11种"><span class="toc-number">4.</span> <span class="toc-text">行为型模式11种</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#观察者模式"><span class="toc-number">4.1.</span> <span class="toc-text">观察者模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模板方法模式"><span class="toc-number">4.2.</span> <span class="toc-text">模板方法模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#策略模式"><span class="toc-number">4.3.</span> <span class="toc-text">策略模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令模式"><span class="toc-number">4.4.</span> <span class="toc-text">命令模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#责任链模式"><span class="toc-number">4.5.</span> <span class="toc-text">责任链模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#迭代模式"><span class="toc-number">4.6.</span> <span class="toc-text">迭代模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#访问者模式"><span class="toc-number">4.7.</span> <span class="toc-text">访问者模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#状态模式"><span class="toc-number">4.8.</span> <span class="toc-text">状态模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#备忘录模式-todo"><span class="toc-number">4.9.</span> <span class="toc-text">备忘录模式//todo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#中介模式"><span class="toc-number">4.10.</span> <span class="toc-text">中介模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解释器模式-todo"><span class="toc-number">4.11.</span> <span class="toc-text">解释器模式//todo</span></a></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -383,7 +398,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/03/02/javascript-closure/" data-title="javascript匿名函数和闭包" data-url="http://willhao.com/2016/03/02/javascript-closure/"></div>
+    <div class="ds-thread" data-thread-key="2016/03/02/design-patterns/" data-title="设计模式" data-url="http://willhao.com/2016/03/02/design-patterns/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -407,7 +422,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/03/02/design-patterns/" title="上一篇: 设计模式">
+            <a href="/2016/03/03/nginx/" title="上一篇: nginx">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -415,7 +430,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/02/28/javascript-object/" title="下一篇: javascript的面向对象">
+            <a href="/2016/03/02/javascript-closure/" title="下一篇: javascript匿名函数和闭包">
                 <i class="fa fa-angle-right"></i>
             </a>
         
